@@ -1,0 +1,59 @@
+{
+    "name":
+    {
+        "patterns": ["[\\w\\s]*nm","[\\w\\s]*name"],
+        "error_rules": {
+            "rules": ["is_only_alphabet", "check_continuous_spl_chrs"],
+            "error_msg": "Given label did not pass the validation failed as it does not contain alphabet or is not continuous!",
+            "level": "Error" 
+        },
+        "spl_chars_allowed": " ,-"
+
+    },
+    "email":
+    {
+        "patterns":["[\\w\\s]*mail","[\\w\\s]*email"],
+        "error_rules": {
+            "rules": ["is_valid_email", "check_continuous_spl_chrs"],
+            "error_msg": "Mail Validation failed",
+            "level": "Error" 
+        },
+        "spl_chars_allowed": ""
+
+    },
+    "numerical_id":
+    {
+        "patterns":["acc[\\w\\s]*no", "account[\\w\\s]*number", "ssn", "social security number", "[\\w\\s]*qty", "[\\w\\s]*quantity", "year", "month", "day","numerical_id"],
+        "error_rules": {
+            "rules": ["is_only_number", "check_continuous_spl_chrs"],
+            "error_msg": "Given label does not contain only numbers",
+            "level": "Error" 
+
+        },
+        "spl_chars_allowed": "-"
+
+    },
+    "alphanumerical_id":
+    {
+        "patterns":["[\\w\\s]*id", "[\\w\\s]*No.", "tin", "po", "[\\w\\s]*num", "purchase[\\w\\s]*order", "alphanumerical_id"],
+        "error_rules": {
+            "rules": ["is_alphanumeric", "check_continuous_spl_chrs"],
+            "error_msg": "Given label does not contain only alpha numbers",
+            "level": "Error" 
+
+        },
+        "spl_chars_allowed": "-"
+
+    },
+    "others":
+    {
+        "patterns":["not a pattern"],
+        "error_rules":{
+            "rules":["check_others"],
+            "error_msg": "Given label did not match with any other labels!",
+            "level":"other"
+        },
+        "spl_chars_allowed":""
+    }
+
+}
